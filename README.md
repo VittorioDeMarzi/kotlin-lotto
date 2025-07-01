@@ -10,4 +10,3 @@
 - [ ] Validation Bonus number
 - [ ] Get winning prizes
 - [ ] Calculate return rate
-- [ ] Test
