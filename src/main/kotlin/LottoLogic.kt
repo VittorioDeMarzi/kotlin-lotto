@@ -1,5 +1,3 @@
-import kotlin.random.Random
-
 class LottoLogic {
 
     fun calculateNumberOfTickets(purchaseAmount: Int): Int{
