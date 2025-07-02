@@ -9,4 +9,10 @@ class Lotto(private val ticket: Set<Int>) {
     fun countMatches(winningTicket: Lotto): Int {
         return this.ticket.intersect(winningTicket.ticket).size
     }
+
+    fun containsBonus(bonusNumber: Int): Boolean {
+        return ticket.contains(bonusNumber)
+    }
+
+
 }
