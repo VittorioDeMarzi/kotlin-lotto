@@ -1,17 +1,20 @@
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.MethodSource
+import org.junit.jupiter.params.provider.ValueSource
 import kotlin.test.Test
 
 class LottoLogicTest {
 
     val lottoLogic = LottoLogic()
 
-    @Test
-    fun `calculate the right number of tickets`(){
-        val purchaseAmount = 10000
-        val rightNumberOfTickets = purchaseAmount/1000
-        val numberOfTickets = lottoLogic.calculateNumberOfTickets(purchaseAmount)
-        assertThat(rightNumberOfTickets).isEqualTo(numberOfTickets)
+    @ParameterizedTest
+    @ValueSource( ints = [1000, 2000, 3000, 4000])
+    fun `calculate the right number of tickets`(purchaseAmounts: Int){
+        val rightNumberOfTickets = purchaseAmounts /1000
+        val numberOfTickets = lottoLogic.calculateNumberOfTickets(purchaseAmounts)
+        assertThat(rightNumberOfTickets).isEqualTo(rightNumberOfTickets)
     }
 
     @Test
@@ -25,5 +28,13 @@ class LottoLogicTest {
         val numberOfTickets = 6
         val tickets = lottoLogic.generateTickets(numberOfTickets)
         assertThat(tickets).hasSize(numberOfTickets)
+    }
+
+    companion object {
+
+        @JvmStatic
+        fun purchaseAmount(): List<Int> {
+            return listOf(1000, 2000, 3000)
+        }
     }
 }
