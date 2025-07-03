@@ -1,9 +1,7 @@
 class WinningLogic(private val tickets: List<Lotto>, private val winningLotto: Lotto, private val bonusNumber: Int) {
-
-//    fun matchLottos(ticket: Lotto, winningLotto: Lotto): Int {
+    //    fun matchLottos(ticket: Lotto, winningLotto: Lotto): Int {
 //        val matchingList = ticket.countMatches()
 //    }
-
 
     fun determineWinningTickets(): Map<Rank, Int> {
 //        val mapOfResult = mutableMapOf<Rank, Int>()

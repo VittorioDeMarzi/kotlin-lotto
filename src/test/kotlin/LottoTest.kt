@@ -1,9 +1,7 @@
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.params.ParameterizedTest
-import org.junit.jupiter.params.provider.CsvSource
 import org.junit.jupiter.params.provider.MethodSource
-import org.junit.jupiter.params.provider.ValueSource
 import kotlin.test.Test
 
 class LottoTest {
@@ -24,26 +22,25 @@ class LottoTest {
 
     @Test
     fun `check the right number of matches between two Lotto with 6 matches`() {
-        val ticket = Lotto(listOf<Int>(1,2,3,4,5,6))
-        val winningLotto = Lotto(listOf<Int>(1,2,3,4,5,6))
+        val ticket = Lotto(listOf<Int>(1, 2, 3, 4, 5, 6))
+        val winningLotto = Lotto(listOf<Int>(1, 2, 3, 4, 5, 6))
         val matches = ticket.countMatches(winningLotto)
         assertThat(matches).isEqualTo(6)
     }
 
     @Test
     fun`check if the bonus number is matched`() {
-        val ticket = Lotto(listOf<Int>(1,2,3,4,5,6))
+        val ticket = Lotto(listOf<Int>(1, 2, 3, 4, 5, 6))
         val bonusNumber = 1
         assertThat(ticket.containsBonus(bonusNumber)).isTrue()
     }
 
     @Test
     fun`check if the bonus number is not matched`() {
-        val ticket = Lotto(listOf<Int>(1,2,3,4,5,6))
+        val ticket = Lotto(listOf<Int>(1, 2, 3, 4, 5, 6))
         val bonusNumber = 7
         assertThat(ticket.containsBonus(bonusNumber)).isFalse()
     }
-
 
     companion object {
         @JvmStatic

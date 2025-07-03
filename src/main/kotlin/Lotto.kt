@@ -1,9 +1,8 @@
 class Lotto(private val ticket: Set<Int>) {
-    constructor(ticket: List<Int>): this(ticket.toSet())
-
+    constructor(ticket: List<Int>) : this(ticket.toSet())
 
     init {
-        require(ticket.size==6)
+        require(ticket.size == 6)
     }
 
     fun countMatches(winningTicket: Lotto): Int {
@@ -13,6 +12,4 @@ class Lotto(private val ticket: Set<Int>) {
     fun containsBonus(bonusNumber: Int): Boolean {
         return ticket.contains(bonusNumber)
     }
-
-
 }
