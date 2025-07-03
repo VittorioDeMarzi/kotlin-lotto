@@ -1,8 +1,7 @@
-class InputView {
-
-    fun purchaseAmountInput(): String? {
+object InputView {
+    fun purchaseAmountInput(): Int {
         println("Please enter the purchase amount.")
-        val purchaseAmount = readlnOrNull()
+        val purchaseAmount = readln().toIntOrNull() ?: throw IllegalArgumentException("The purchase amount has to be a valid number.")
         return purchaseAmount
     }
 
