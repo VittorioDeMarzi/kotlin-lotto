@@ -20,4 +20,13 @@ class WinningLogicTest {
         assertThat(mapOfResult.getOrDefault(Rank.SECOND, 0)).isEqualTo(1)
         assertThat(mapOfResult.getOrDefault(Rank.THIRD, 0)).isEqualTo(1)
     }
+
+    @Test
+    fun `generate right winning Lotto`() {
+        val listOfInt = listOf<Int>(1, 2, 3, 4, 5, 6)
+        val expectedWinningLotto = Lotto(listOf<Int>(1, 2, 3, 4, 5, 6))
+        val lottoLogic = LottoLogic()
+        val actualWinningLotto = lottoLogic.generateWinningLotto(listOfInt)
+        assertThat(expectedWinningLotto).isEqualTo(actualWinningLotto)
+    }
 }
