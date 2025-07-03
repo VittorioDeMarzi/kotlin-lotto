@@ -1,3 +1,5 @@
+package lotto.core
+
 class Lotto(private val ticket: Set<Int>) {
     constructor(ticket: List<Int>) : this(ticket.toSet())
 

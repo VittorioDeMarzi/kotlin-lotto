@@ -1,3 +1,5 @@
+package lotto.core
+
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.params.ParameterizedTest
@@ -29,14 +31,14 @@ class LottoTest {
     }
 
     @Test
-    fun`check if the bonus number is matched`() {
+    fun `check if the bonus number is matched`() {
         val ticket = Lotto(listOf<Int>(1, 2, 3, 4, 5, 6))
         val bonusNumber = 1
         assertThat(ticket.containsBonus(bonusNumber)).isTrue()
     }
 
     @Test
-    fun`check if the bonus number is not matched`() {
+    fun `check if the bonus number is not matched`() {
         val ticket = Lotto(listOf<Int>(1, 2, 3, 4, 5, 6))
         val bonusNumber = 7
         assertThat(ticket.containsBonus(bonusNumber)).isFalse()

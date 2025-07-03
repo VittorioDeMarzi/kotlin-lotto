@@ -1,10 +1,12 @@
+package lotto.core
+
 class WinningLogic(private val tickets: List<Lotto>, private val winningLotto: Lotto, private val bonusNumber: Int) {
-    //    fun matchLottos(ticket: Lotto, winningLotto: Lotto): Int {
+    //    fun matchLottos(ticket: lotto.core.Lotto, winningLotto: lotto.core.Lotto): Int {
 //        val matchingList = ticket.countMatches()
 //    }
 
     fun determineWinningTickets(): Map<Rank, Int> {
-//        val mapOfResult = mutableMapOf<Rank, Int>()
+//        val mapOfResult = mutableMapOf<lotto.core.Rank, Int>()
 
         return tickets
             .map {
@@ -17,7 +19,7 @@ class WinningLogic(private val tickets: List<Lotto>, private val winningLotto: L
 //        tickets.forEach {
 //            val countMatches = it.countMatches(winningLotto)
 //            val hasBonus = it.containsBonus(bonusNumber)
-//            val rank = Rank.valueOf(countMatches, hasBonus)
+//            val rank = lotto.core.Rank.valueOf(countMatches, hasBonus)
 //            println(rank)
 //            mapOfResult.put(rank, mapOfResult.getOrDefault(rank, 0) + 1)
 //        }

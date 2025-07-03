@@ -1,3 +1,5 @@
+package lotto.core
+
 class LottoLogic {
     fun calculateNumberOfTickets(purchaseAmount: Int): Int {
         val numberOfTickets = purchaseAmount / 1000

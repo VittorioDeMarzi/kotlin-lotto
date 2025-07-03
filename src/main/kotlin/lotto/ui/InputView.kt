@@ -1,7 +1,10 @@
+package lotto.ui
+
 object InputView {
     fun purchaseAmountInput(): Int {
         println("Please enter the purchase amount.")
-        val purchaseAmount = readln().toIntOrNull() ?: throw IllegalArgumentException("The purchase amount has to be a valid number.")
+        val purchaseAmount =
+            readln().toIntOrNull() ?: throw IllegalArgumentException("The purchase amount has to be a valid number.")
         return purchaseAmount
     }
 

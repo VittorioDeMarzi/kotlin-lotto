@@ -1,3 +1,5 @@
+package lotto.core
+
 class InputValidation {
     fun createWinningLottoList(winningLottoString: String): List<Int> {
         try {
