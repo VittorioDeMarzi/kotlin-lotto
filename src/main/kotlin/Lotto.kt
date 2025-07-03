@@ -12,4 +12,8 @@ class Lotto(private val ticket: Set<Int>) {
     fun containsBonus(bonusNumber: Int): Boolean {
         return ticket.contains(bonusNumber)
     }
+
+    fun displayLotto() {
+        println(ticket.joinToString(",", prefix = "[", postfix = "]"))
+    }
 }
