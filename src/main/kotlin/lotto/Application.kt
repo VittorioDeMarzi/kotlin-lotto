@@ -2,6 +2,7 @@ package lotto
 
 import lotto.core.InputValidation
 import lotto.core.LottoLogic
+import lotto.core.Statistics
 import lotto.core.WinningLogic
 import lotto.ui.InputView
 import lotto.ui.ResultView
@@ -22,7 +23,10 @@ fun main() {
 
     val result = WinningLogic(tickets, winningLotto, bonusNumber).determineWinningTickets()
 
+    val statistics = Statistics(result, purchaseAmount)
+
     ResultView.displayNumberOfTickets(numberOfTickets)
     ResultView.displayTickets(tickets)
     ResultView.displayWinningRanks(result)
+    ResultView.displayWinningRate(statistics.calculateRate())
 }

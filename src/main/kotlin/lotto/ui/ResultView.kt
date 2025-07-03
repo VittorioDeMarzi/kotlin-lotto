@@ -24,4 +24,8 @@ object ResultView {
             println("${it.display()} - ${mapOfResult.getOrDefault(it, 0)} tickets")
         }
     }
+
+    fun displayWinningRate(rate: Double) {
+        println("Total return rate is " + String.format("%.2f", rate) + " (A rate below 1 means a loss)")
+    }
 }
