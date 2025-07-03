@@ -14,7 +14,14 @@ object ResultView {
         }
     }
 
-    fun displayWinningRanks() {
-        println(Rank.THIRD.display())
+    fun displayWinningRanks(mapOfResult: Map<Rank, Int>) {
+        println()
+        println("Winning Statistics")
+        println("-----------------------")
+        val rankList = listOf<Rank>(Rank.FIRST, Rank.SECOND, Rank.THIRD, Rank.FOURTH, Rank.FIFTH)
+
+        rankList.forEach {
+            println("${it.display()} - ${mapOfResult.getOrDefault(it, 0)} tickets")
+        }
     }
 }

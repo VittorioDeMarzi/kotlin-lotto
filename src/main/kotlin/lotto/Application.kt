@@ -1,6 +1,8 @@
 package lotto
 
+import lotto.core.InputValidation
 import lotto.core.LottoLogic
+import lotto.core.WinningLogic
 import lotto.ui.InputView
 import lotto.ui.ResultView
 
@@ -11,9 +13,16 @@ fun main() {
     val numberOfTickets = lottoMachine.calculateNumberOfTickets(purchaseAmount)
     val tickets = lottoMachine.generateTickets(numberOfTickets)
 
-    val winningLotto = InputView.winningNumbersInput()
+    val winningLottoString = InputView.winningNumbersInput()
+    val inputValidation = InputValidation()
+    val winningLottoList = inputValidation.createWinningLottoList(winningLottoString)
+    val winningLotto = lottoMachine.generateWinningLotto(winningLottoList)
+
+    val bonusNumber = InputView.bonusNumberInput()
+
+    val result = WinningLogic(tickets, winningLotto, bonusNumber).determineWinningTickets()
 
     ResultView.displayNumberOfTickets(numberOfTickets)
-    ResultView.displayWinningRanks()
     ResultView.displayTickets(tickets)
+    ResultView.displayWinningRanks(result)
 }
