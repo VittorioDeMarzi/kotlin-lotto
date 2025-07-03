@@ -19,4 +19,8 @@ class LottoLogic {
         }
         return listOfTickets
     }
+
+    fun generateWinningLotto(listOfInt: List<Int>): Lotto {
+        return Lotto(listOfInt)
+    }
 }
