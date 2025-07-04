@@ -2,10 +2,17 @@ package lotto.ui
 
 object InputView {
     fun purchaseAmountInput(): Int {
-        println("Please enter the purchase amount.")
-        val purchaseAmount =
-            readln().toIntOrNull() ?: throw IllegalArgumentException("Invalid input")
-        return purchaseAmount
+        while (true) {
+            try {
+                println("Please enter the purchase amount:")
+                val purchaseAmount = readln().toIntOrNull() ?: throw IllegalArgumentException("Invalid input")
+                require(purchaseAmount >= 1000) { throw IllegalArgumentException(Error.LOW_PURCHASE_AMOUNT.message) }
+                require(purchaseAmount % 1000 == 0) { throw IllegalArgumentException(Error.NOT_DIVISIBLE_BY_1000.message) }
+                return purchaseAmount
+            } catch (error: IllegalArgumentException) {
+                println(error.message)
+            }
+        }
     }
 
     fun winningNumbersInput(): String {
