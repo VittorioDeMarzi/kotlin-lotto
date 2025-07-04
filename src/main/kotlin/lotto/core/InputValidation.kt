@@ -1,6 +1,15 @@
 package lotto.core
 
-class InputValidation {
+import lotto.ui.Error
+
+object InputValidation {
+    fun validatePurchaseAmount(input: String): Int {
+        val purchaseAmount = input.toIntOrNull() ?: throw IllegalArgumentException(lotto.ui.Error.INVALID_INPUT.message)
+        require(purchaseAmount >= 1000) { Error.LOW_PURCHASE_AMOUNT.message }
+        require(purchaseAmount % 1000 == 0) { Error.NOT_DIVISIBLE_BY_1000.message }
+        return purchaseAmount
+    }
+
     fun createWinningLottoList(winningLottoString: String): List<Int> {
         try {
             val winningLottoList = winningLottoString.split(",").map { it.toInt() }
