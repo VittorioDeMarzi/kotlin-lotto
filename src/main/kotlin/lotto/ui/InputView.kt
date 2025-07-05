@@ -5,25 +5,30 @@ object InputView {
         while (true) {
             try {
                 println("Please enter the purchase amount:")
-                val purchaseAmount = readln().toIntOrNull() ?: throw IllegalArgumentException("Invalid input")
-                require(purchaseAmount >= 1000) { throw IllegalArgumentException(Error.LOW_PURCHASE_AMOUNT.message) }
-                require(purchaseAmount % 1000 == 0) { throw IllegalArgumentException(Error.NOT_DIVISIBLE_BY_1000.message) }
-                return purchaseAmount
+                val input = readlnOrNull() ?: throw IllegalArgumentException(Error.INVALID_INPUT.message)
+                return InputValidation.validatePurchaseAmount(input)
             } catch (error: IllegalArgumentException) {
                 println(error.message)
             }
         }
     }
 
-    fun winningNumbersInput(): String {
-        println("Please enter last week’s winning numbers.")
-        val winningNumbers = readlnOrNull() ?: throw IllegalArgumentException("Invalid input")
-        return winningNumbers
+    fun winningNumbersInput(): List<Int> {
+        while (true) {
+            println("Please enter last week’s winning numbers.")
+            val winningNumbers = readlnOrNull() ?: throw IllegalArgumentException(Error.INVALID_INPUT.message)
+            try {
+                val winningLottoNumbers = winningNumbers.split(",").map { it.toInt() }
+                InputValidation.validateWinningNumbersInput(winningLottoNumbers)
+                return winningLottoNumbers
+            } catch (e: IllegalArgumentException) {
+                println(Error.INVALID_INPUT.message + " " + e.message)
+            }
+        }
     }
 
     fun bonusNumberInput(): Int {
         println("Please enter the bonus number.")
-        val bonusNumber = readln().toIntOrNull() ?: throw IllegalArgumentException("Invalid input")
-        return bonusNumber
+        return readln().toIntOrNull() ?: throw IllegalArgumentException(Error.INVALID_INPUT.message)
     }
 }

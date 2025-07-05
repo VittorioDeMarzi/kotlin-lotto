@@ -11,8 +11,7 @@ class LottoController {
         val numberOfTickets = lottoMachine.calculateNumberOfTickets(purchaseAmount)
         val tickets = lottoMachine.generateTickets(numberOfTickets)
 
-        val winningLottoString = InputView.winningNumbersInput()
-        val winningLottoList = InputValidation.createWinningLottoList(winningLottoString)
+        val winningLottoList = InputView.winningNumbersInput()
         val winningLotto = lottoMachine.generateWinningLotto(winningLottoList)
 
         val bonusNumber = InputView.bonusNumberInput()
