@@ -14,7 +14,7 @@ class LottoController {
         val winningLottoList = InputView.winningNumbersInput()
         val winningLotto = lottoMachine.generateWinningLotto(winningLottoList)
 
-        val bonusNumber = InputView.bonusNumberInput()
+        val bonusNumber = InputView.bonusNumberInput(winningLottoList)
 
         val result = WinningLogic(tickets, winningLotto, bonusNumber).determineWinningTickets()
 

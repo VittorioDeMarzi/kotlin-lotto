@@ -17,20 +17,28 @@ object InputView {
 
     fun winningNumbersInput(): List<Int> {
         while (true) {
-            println("Please enter last week’s winning numbers.")
-            val winningNumbers = readlnOrNull() ?: throw IllegalArgumentException(Error.INVALID_INPUT.message)
             try {
+                println("Please enter last week’s winning numbers.")
+                val winningNumbers = readlnOrNull() ?: throw IllegalArgumentException(Error.INVALID_INPUT.message)
                 val winningLottoNumbers = winningNumbers.split(",").map { it.toInt() }
                 InputValidation.validateWinningNumbersInput(winningLottoNumbers)
                 return winningLottoNumbers
             } catch (e: IllegalArgumentException) {
-                println(Error.INVALID_INPUT.message + " " + e.message)
+                println(e.message)
             }
         }
     }
 
-    fun bonusNumberInput(): Int {
-        println("Please enter the bonus number.")
-        return readln().toIntOrNull() ?: throw IllegalArgumentException(Error.INVALID_INPUT.message)
+    fun bonusNumberInput(winningNumbers: List<Int>): Int {
+        while (true) {
+            try {
+                println("Please enter the bonus number.")
+                val bonusNumber = readln().toIntOrNull() ?: throw IllegalArgumentException(Error.INVALID_INPUT.message)
+                InputValidation.validateBonusNumberInput(winningNumbers, bonusNumber)
+                return bonusNumber
+            } catch (e: IllegalArgumentException) {
+                println(e.message)
+            }
+        }
     }
 }
