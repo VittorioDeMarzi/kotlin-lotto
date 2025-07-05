@@ -1,5 +1,7 @@
 package lotto.ui
 
+import lotto.core.InputValidation
+
 object InputView {
     fun purchaseAmountInput(): Int {
         while (true) {
