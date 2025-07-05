@@ -10,7 +10,7 @@ object ResultView {
 
     fun displayTickets(tickets: List<Lotto>) {
         tickets.forEach {
-            it.displayLotto()
+            println(it.displayLotto())
         }
     }
 
