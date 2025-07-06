@@ -1,11 +1,12 @@
 package lotto
 
 import lotto.controller.LottoController
-import lotto.model.LottoMachine
+import lotto.model.TicketFactory
+import lotto.model.WinningLottoFactory
 import lotto.view.InputView
 import lotto.view.ResultView
 
 fun main() {
-    val lottoGame = LottoController(InputView, ResultView, LottoMachine())
+    val lottoGame = LottoController(InputView, ResultView, TicketFactory, WinningLottoFactory)
     lottoGame.run()
 }
