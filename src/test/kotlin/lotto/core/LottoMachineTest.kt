@@ -2,11 +2,12 @@ package lotto.core
 
 import lotto.model.LottoMachine
 import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.ValueSource
-import kotlin.test.Test
 
-class LottoLogicTest {
+class LottoMachineTest {
     val lottoMachine = LottoMachine()
 
     @ParameterizedTest
@@ -14,7 +15,15 @@ class LottoLogicTest {
     fun `calculate the right number of tickets`(purchaseAmounts: Int) {
         val rightNumberOfTickets = purchaseAmounts / 1000
         val numberOfTickets = lottoMachine.calculateNumberOfTickets(purchaseAmounts)
-        assertThat(rightNumberOfTickets).isEqualTo(rightNumberOfTickets)
+        assertThat(rightNumberOfTickets).isEqualTo(numberOfTickets)
+    }
+
+    @Test
+    fun `Should throw exception if purchase Amount is negative`() {
+        val purchaseAmount = -10
+        assertThrows<IllegalArgumentException> {
+            lottoMachine.calculateNumberOfTickets(purchaseAmount)
+        }
     }
 
     @Test
