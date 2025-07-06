@@ -17,7 +17,7 @@ class WinningLogicTest {
         val ticket3 = Lotto(listOf<Int>(1, 2, 3, 4, 5, 9))
         val tickets = listOf<Lotto>(ticket1, ticket2, ticket3)
         val bonusNumber = 9
-        val winningLogic = WinningLogic(tickets, winningLotto, bonusNumber)
+        val winningLogic = WinningLogic(tickets, winningLotto)
         val mapOfResult = winningLogic.determineWinningTickets()
         assertThat(mapOfResult.size).isEqualTo(3)
 
