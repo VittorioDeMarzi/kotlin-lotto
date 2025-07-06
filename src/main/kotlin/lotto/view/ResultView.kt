@@ -1,7 +1,7 @@
-package lotto.ui
+package lotto.view
 
-import lotto.core.Lotto
-import lotto.core.Rank
+import lotto.model.Lotto
+import lotto.model.Rank
 
 object ResultView {
     fun displayNumberOfTickets(numberOfTickets: Int) {

@@ -1,4 +1,4 @@
-package lotto.ui
+package lotto.view
 
 enum class Error(val message: String) {
     BONUS("[ERROR] Bonus number must not be among the winning numbers."),

@@ -1,4 +1,4 @@
-package lotto.core
+package lotto.model
 
 class WinningLogic(private val tickets: List<Lotto>, private val winningLotto: Lotto, private val bonusNumber: Int) {
     fun determineWinningTickets(): Map<Rank, Int> {

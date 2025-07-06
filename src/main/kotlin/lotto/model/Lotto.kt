@@ -1,6 +1,6 @@
-package lotto.core
+package lotto.model
 
-import lotto.ui.Error
+import lotto.view.Error
 
 data class Lotto(private val numbers: Set<Int>) {
     constructor(numbers: List<Int>) : this(numbers.toSet())

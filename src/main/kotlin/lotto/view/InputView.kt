@@ -1,6 +1,6 @@
-package lotto.ui
+package lotto.view
 
-import lotto.core.InputValidation
+import lotto.model.InputValidation
 
 object InputView {
     fun purchaseAmountInput(): Int {

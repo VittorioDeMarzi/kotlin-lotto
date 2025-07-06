@@ -1,6 +1,6 @@
-package lotto.core
+package lotto.model
 
-import lotto.ui.Error
+import lotto.view.Error
 
 object InputValidation {
     fun validatePurchaseAmount(input: String): Int {

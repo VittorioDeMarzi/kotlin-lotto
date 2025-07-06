@@ -1,5 +1,9 @@
 package lotto.core
 
+import lotto.model.Lotto
+import lotto.model.LottoLogic
+import lotto.model.Rank
+import lotto.model.WinningLogic
 import org.assertj.core.api.Assertions.assertThat
 import kotlin.test.Test
 

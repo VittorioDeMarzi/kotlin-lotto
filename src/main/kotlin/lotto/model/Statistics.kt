@@ -1,4 +1,4 @@
-package lotto.core
+package lotto.model
 
 class Statistics(val result: Map<Rank, Int>, val purchaseAmount: Int) {
     fun calculateRate(): Double {

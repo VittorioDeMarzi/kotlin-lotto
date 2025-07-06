@@ -1,6 +1,6 @@
-package lotto.core
+package lotto.model
 
-import lotto.ui.Error
+import lotto.view.Error
 
 class WinningLotto(val lotto: Lotto, val bonusNumber: Int) {
     init {

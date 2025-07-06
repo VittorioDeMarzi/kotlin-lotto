@@ -1,4 +1,4 @@
-package lotto.core
+package lotto.model
 
 class LottoLogic {
     fun calculateNumberOfTickets(purchaseAmount: Int): Int {

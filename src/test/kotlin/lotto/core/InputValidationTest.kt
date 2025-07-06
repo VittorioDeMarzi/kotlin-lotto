@@ -1,5 +1,6 @@
 package lotto.core
 
+import lotto.model.InputValidation
 import org.junit.jupiter.api.assertThrows
 import kotlin.test.Test
 
