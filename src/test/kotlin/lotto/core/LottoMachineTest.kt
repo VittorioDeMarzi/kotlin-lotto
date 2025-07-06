@@ -1,6 +1,6 @@
 package lotto.core
 
-import lotto.model.LottoMachine
+import lotto.model.TicketFactory
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
@@ -8,7 +8,7 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.ValueSource
 
 class LottoMachineTest {
-    val lottoMachine = LottoMachine()
+    val lottoMachine = TicketFactory
 
     @ParameterizedTest
     @ValueSource(ints = [1000, 2000, 3000, 4000])
@@ -24,12 +24,6 @@ class LottoMachineTest {
         assertThrows<IllegalArgumentException> {
             lottoMachine.calculateNumberOfTickets(purchaseAmount)
         }
-    }
-
-    @Test
-    fun `generate a list of 6 numbers`() {
-        val listOfNumbers = lottoMachine.generateListOfSixRandomNumbers()
-        assertThat(listOfNumbers).hasSize(6)
     }
 
     @Test

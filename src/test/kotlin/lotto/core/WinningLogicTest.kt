@@ -1,10 +1,10 @@
 package lotto.core
 
 import lotto.model.Lotto
-import lotto.model.LottoMachine
 import lotto.model.Rank
 import lotto.model.WinningLogic
 import lotto.model.WinningLotto
+import lotto.model.WinningLottoFactory
 import org.assertj.core.api.Assertions.assertThat
 import kotlin.test.Test
 
@@ -31,10 +31,9 @@ class WinningLogicTest {
         val winningNumbers = listOf<Int>(1, 2, 3, 4, 5, 6)
         val bonusNumber = 7
         val expectedWinningLotto = WinningLotto(Lotto(listOf<Int>(1, 2, 3, 4, 5, 6)), 7)
-        val lottoMachine = LottoMachine()
 
         val actualWinningLotto =
-            lottoMachine.generateWinningLotto(
+            WinningLottoFactory.from(
                 listOfInt = winningNumbers,
                 bonusNumber = bonusNumber,
             )
