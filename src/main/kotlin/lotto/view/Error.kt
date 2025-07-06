@@ -8,4 +8,5 @@ enum class Error(val message: String) {
     INVALID_LOTTO_SIZE("[ERROR] Winning numbers must be 6 numbers."),
     DUPLICATE_WINNING("[ERROR] Winning numbers must be unique."),
     OUT_OF_RANGE("[ERROR] Numbers must be between 1 and 45."),
+    BONUS_OUT_OF_RANGE("[ERROR] Bonus must be between 1 and 45."),
 }
