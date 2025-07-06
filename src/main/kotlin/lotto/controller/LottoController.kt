@@ -22,7 +22,7 @@ class LottoController(
 
         val winningLotto = lottoMachine.generateWinningLotto(winningLottoList, bonusNumber)
 
-        val result = WinningLogic(tickets, winningLotto, bonusNumber).determineWinningTickets()
+        val result = WinningLogic(tickets, winningLotto).determineWinningTickets()
 
         val statistics = Statistics(result, purchaseAmount)
 

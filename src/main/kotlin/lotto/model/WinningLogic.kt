@@ -3,7 +3,6 @@ package lotto.model
 class WinningLogic(
     private val tickets: List<Lotto>,
     private val winningLotto: WinningLotto,
-    private val bonusNumber: Int,
 ) {
     fun determineWinningTickets(): Map<Rank, Int> {
         return tickets
