@@ -3,6 +3,8 @@ package lotto.core
 import lotto.model.Rank
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.CsvSource
 
 class RankTest {
     @Test
@@ -43,5 +45,13 @@ class RankTest {
         val matchBonus = false
         val rank = Rank.valueOf(matchCount, matchBonus)
         assertThat(rank).isEqualTo(Rank.FIFTH)
+    }
+
+    @ParameterizedTest
+    @CsvSource("2,1,0")
+    fun `value of MISS rank`(matchCount: Int) {
+        val matchBonus = false
+        val rank = Rank.valueOf(matchCount, matchBonus)
+        assertThat(rank).isEqualTo(Rank.MISS)
     }
 }
