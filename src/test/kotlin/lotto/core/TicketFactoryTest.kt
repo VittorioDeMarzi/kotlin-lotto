@@ -7,14 +7,14 @@ import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.ValueSource
 
-class LottoMachineTest {
-    val lottoMachine = TicketFactory
+class TicketFactoryTest {
+    val ticketFactory = TicketFactory
 
     @ParameterizedTest
     @ValueSource(ints = [1000, 2000, 3000, 4000])
     fun `calculate the right number of tickets`(purchaseAmounts: Int) {
         val rightNumberOfTickets = purchaseAmounts / 1000
-        val numberOfTickets = lottoMachine.calculateNumberOfTickets(purchaseAmounts)
+        val numberOfTickets = ticketFactory.calculateNumberOfTickets(purchaseAmounts)
         assertThat(rightNumberOfTickets).isEqualTo(numberOfTickets)
     }
 
@@ -22,14 +22,14 @@ class LottoMachineTest {
     fun `Should throw exception if purchase Amount is negative`() {
         val purchaseAmount = -10
         assertThrows<IllegalArgumentException> {
-            lottoMachine.calculateNumberOfTickets(purchaseAmount)
+            ticketFactory.calculateNumberOfTickets(purchaseAmount)
         }
     }
 
     @Test
     fun `generate the right number of tickets`() {
         val numberOfTickets = 6
-        val tickets = lottoMachine.generateTickets(numberOfTickets)
+        val tickets = ticketFactory.generateTickets(numberOfTickets)
         assertThat(tickets).hasSize(numberOfTickets)
     }
 
