@@ -9,10 +9,6 @@ object TicketFactory {
         return purchaseAmount / 1000
     }
 
-    fun generateListOfSixRandomNumbers(): List<Int> {
-        return (1..50).shuffled().take(6)
-    }
-
     fun generateTickets(numberOfTickets: Int): List<Lotto> {
         val listOfTickets = mutableListOf<Lotto>()
         repeat(numberOfTickets) {
