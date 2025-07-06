@@ -4,13 +4,14 @@ import lotto.model.Lotto
 import lotto.model.LottoMachine
 import lotto.model.Rank
 import lotto.model.WinningLogic
+import lotto.model.WinningLotto
 import org.assertj.core.api.Assertions.assertThat
 import kotlin.test.Test
 
 class WinningLogicTest {
     @Test
     fun `calculate right number of Ranks`() {
-        val winningLotto = Lotto(listOf<Int>(1, 2, 3, 4, 5, 6))
+        val winningLotto = WinningLotto(Lotto(listOf<Int>(1, 2, 3, 4, 5, 6)), 9)
         val ticket1 = Lotto(listOf<Int>(1, 2, 3, 4, 5, 6))
         val ticket2 = Lotto(listOf<Int>(1, 2, 3, 4, 5, 8))
         val ticket3 = Lotto(listOf<Int>(1, 2, 3, 4, 5, 9))
@@ -27,10 +28,16 @@ class WinningLogicTest {
 
     @Test
     fun `generate right winning Lotto`() {
-        val listOfInt = listOf<Int>(1, 2, 3, 4, 5, 6)
-        val expectedWinningLotto = Lotto(listOf<Int>(1, 2, 3, 4, 5, 6))
+        val winningNumbers = listOf<Int>(1, 2, 3, 4, 5, 6)
+        val bonusNumber = 7
+        val expectedWinningLotto = WinningLotto(Lotto(listOf<Int>(1, 2, 3, 4, 5, 6)), 7)
         val lottoMachine = LottoMachine()
-        val actualWinningLotto = lottoMachine.generateWinningLotto(listOfInt)
+
+        val actualWinningLotto =
+            lottoMachine.generateWinningLotto(
+                listOfInt = winningNumbers,
+                bonusNumber = bonusNumber,
+            )
         assertThat(expectedWinningLotto).isEqualTo(actualWinningLotto)
     }
 }
