@@ -13,14 +13,10 @@ class LottoMachine {
         return (1..50).shuffled().take(6)
     }
 
-    fun generateLotto(listOfInt: List<Int>): Lotto {
-        return Lotto(listOfInt)
-    }
-
     fun generateTickets(numberOfTickets: Int): List<Lotto> {
         val listOfTickets = mutableListOf<Lotto>()
         repeat(numberOfTickets) {
-            val lotto = generateLotto(generateListOfSixRandomNumbers())
+            val lotto = Lotto(Random.generateListOfSixRandomNumbers())
             listOfTickets.add(lotto)
         }
         return listOfTickets
