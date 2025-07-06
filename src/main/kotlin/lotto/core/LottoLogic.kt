@@ -2,13 +2,11 @@ package lotto.core
 
 class LottoLogic {
     fun calculateNumberOfTickets(purchaseAmount: Int): Int {
-        val numberOfTickets = purchaseAmount / 1000
-        return numberOfTickets
+        return purchaseAmount / 1000
     }
 
     fun generateListOfSixRandomNumbers(): List<Int> {
-        val listOfNumbers = (1..50).shuffled().take(6)
-        return listOfNumbers
+        return (1..50).shuffled().take(6)
     }
 
     fun generateTickets(numberOfTickets: Int): List<Lotto> {
