@@ -13,7 +13,7 @@ object InputValidation {
     fun validateWinningNumbersInput(numbers: List<Int>) {
         require(numbers.toSet().size == numbers.size) { Error.DUPLICATE_WINNING.message } // Numbers must be unique
         require(numbers.all { it in 1..50 }) { Error.OUT_OF_RANGE.message } // any number must be in range 1 - 50
-        require(numbers.size == 6) { Error.INVALID_WINNING_SIZE.message } // Winning lotto has to be 6 numbers
+        require(numbers.size == 6) { Error.INVALID_LOTTO_SIZE.message } // Winning lotto has to be 6 numbers
     }
 
     fun validateBonusNumberInput(

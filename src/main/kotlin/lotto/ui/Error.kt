@@ -5,7 +5,7 @@ enum class Error(val message: String) {
     LOW_PURCHASE_AMOUNT("[ERROR] The purchase amount must be greater or equal than 1000."),
     NOT_DIVISIBLE_BY_1000("[ERROR] The purchase amount must be divisible by 1,000."),
     INVALID_INPUT("[ERROR] Invalid Input"),
-    INVALID_WINNING_SIZE("[ERROR] Winning numbers must be 6 numbers."),
+    INVALID_LOTTO_SIZE("[ERROR] Winning numbers must be 6 numbers."),
     DUPLICATE_WINNING("[ERROR] Winning numbers must be unique."),
     OUT_OF_RANGE("[ERROR] Numbers must be between 1 and 45."),
 }
