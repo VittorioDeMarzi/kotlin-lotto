@@ -6,16 +6,19 @@ import lotto.model.WinningLogic
 import lotto.view.InputView
 import lotto.view.ResultView
 
-class LottoController {
+class LottoController(
+    private val inputView: InputView,
+    private val resultView: ResultView,
+    private val lottoLogic: LottoLogic,
+) {
     fun run() {
-        val purchaseAmount = InputView.purchaseAmountInput()
-        val lottoMachine = LottoLogic()
+        val purchaseAmount = inputView.purchaseAmountInput()
 
-        val numberOfTickets = lottoMachine.calculateNumberOfTickets(purchaseAmount)
-        val tickets = lottoMachine.generateTickets(numberOfTickets)
+        val numberOfTickets = lottoLogic.calculateNumberOfTickets(purchaseAmount)
+        val tickets = lottoLogic.generateTickets(numberOfTickets)
 
-        val winningLottoList = InputView.winningNumbersInput()
-        val winningLotto = lottoMachine.generateWinningLotto(winningLottoList)
+        val winningLottoList = inputView.winningNumbersInput()
+        val winningLotto = lottoLogic.generateWinningLotto(winningLottoList)
 
         val bonusNumber = InputView.bonusNumberInput(winningLottoList)
 
@@ -23,9 +26,9 @@ class LottoController {
 
         val statistics = Statistics(result, purchaseAmount)
 
-        ResultView.displayNumberOfTickets(numberOfTickets)
-        ResultView.displayTickets(tickets)
-        ResultView.displayWinningRanks(result)
-        ResultView.displayWinningRate(statistics.calculateRate())
+        resultView.displayNumberOfTickets(numberOfTickets)
+        resultView.displayTickets(tickets)
+        resultView.displayWinningRanks(result)
+        resultView.displayWinningRate(statistics.calculateRate())
     }
 }
