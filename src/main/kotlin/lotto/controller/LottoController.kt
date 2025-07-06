@@ -1,6 +1,6 @@
 package lotto.controller
 
-import lotto.model.LottoLogic
+import lotto.model.LottoMachine
 import lotto.model.Statistics
 import lotto.model.WinningLogic
 import lotto.view.InputView
@@ -9,16 +9,16 @@ import lotto.view.ResultView
 class LottoController(
     private val inputView: InputView,
     private val resultView: ResultView,
-    private val lottoLogic: LottoLogic,
+    private val lottoMachine: LottoMachine,
 ) {
     fun run() {
         val purchaseAmount = inputView.purchaseAmountInput()
 
-        val numberOfTickets = lottoLogic.calculateNumberOfTickets(purchaseAmount)
-        val tickets = lottoLogic.generateTickets(numberOfTickets)
+        val numberOfTickets = lottoMachine.calculateNumberOfTickets(purchaseAmount)
+        val tickets = lottoMachine.generateTickets(numberOfTickets)
 
         val winningLottoList = inputView.winningNumbersInput()
-        val winningLotto = lottoLogic.generateWinningLotto(winningLottoList)
+        val winningLotto = lottoMachine.generateWinningLotto(winningLottoList)
 
         val bonusNumber = InputView.bonusNumberInput(winningLottoList)
 

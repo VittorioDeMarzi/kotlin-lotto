@@ -1,6 +1,6 @@
 package lotto.model
 
-class LottoLogic {
+class LottoMachine {
     fun calculateNumberOfTickets(purchaseAmount: Int): Int {
         return purchaseAmount / 1000
     }

@@ -1,7 +1,7 @@
 package lotto.core
 
 import lotto.model.Lotto
-import lotto.model.LottoLogic
+import lotto.model.LottoMachine
 import lotto.model.Rank
 import lotto.model.WinningLogic
 import org.assertj.core.api.Assertions.assertThat
@@ -29,8 +29,8 @@ class WinningLogicTest {
     fun `generate right winning Lotto`() {
         val listOfInt = listOf<Int>(1, 2, 3, 4, 5, 6)
         val expectedWinningLotto = Lotto(listOf<Int>(1, 2, 3, 4, 5, 6))
-        val lottoLogic = LottoLogic()
-        val actualWinningLotto = lottoLogic.generateWinningLotto(listOfInt)
+        val lottoMachine = LottoMachine()
+        val actualWinningLotto = lottoMachine.generateWinningLotto(listOfInt)
         assertThat(expectedWinningLotto).isEqualTo(actualWinningLotto)
     }
 }
