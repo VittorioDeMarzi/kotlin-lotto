@@ -6,7 +6,7 @@
     - [x] The input amount must be greater than or equal to 1,000 KRW
     - [x] The amount must be divisible by 1,000 KRW
 - [x] Calculate number of tickets from the amount: amount / 1000
-- [ ] Generate LottoTickets
+- [x] Generate LottoTickets
     - [x] each ticket has 6 numbers
     - [x] Numbers must be in the range 1 to 45
     - [x] Numbers should be sorted in ascending order

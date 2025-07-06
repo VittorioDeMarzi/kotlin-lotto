@@ -2,7 +2,7 @@ package lotto.model
 
 import lotto.view.Error
 
-class LottoMachine {
+object LottoMachine {
     fun calculateNumberOfTickets(purchaseAmount: Int): Int {
         require(purchaseAmount >= 1000) { Error.LOW_PURCHASE_AMOUNT.message }
         require(purchaseAmount % 1000 == 0) { Error.NOT_DIVISIBLE_BY_1000.message }
@@ -20,12 +20,5 @@ class LottoMachine {
             listOfTickets.add(lotto)
         }
         return listOfTickets
-    }
-
-    fun generateWinningLotto(
-        listOfInt: List<Int>,
-        bonusNumber: Int,
-    ): WinningLotto {
-        return WinningLotto(Lotto(listOfInt), bonusNumber)
     }
 }
