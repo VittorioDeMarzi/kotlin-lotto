@@ -18,4 +18,10 @@ data class Lotto(private val numbers: Set<LottoNumber>) {
     fun getLottoNumbers(): Set<LottoNumber> {
         return numbers
     }
+
+    companion object {
+        fun fromInts(numbers: Set<Int>): Lotto {
+            return Lotto(numbers.map(LottoNumber::from).toSet())
+        }
+    }
 }
