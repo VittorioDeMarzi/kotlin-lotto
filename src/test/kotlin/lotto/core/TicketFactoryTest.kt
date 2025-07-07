@@ -29,7 +29,7 @@ class TicketFactoryTest {
     @Test
     fun `generate the right number of tickets`() {
         val numberOfTickets = 6
-        val tickets = ticketFactory.generateTickets(numberOfTickets)
+        val tickets = ticketFactory.generateAutomaticTickets(numberOfTickets)
         assertThat(tickets).hasSize(numberOfTickets)
     }
 
