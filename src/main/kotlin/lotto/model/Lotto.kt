@@ -18,7 +18,7 @@ data class Lotto(private val numbers: Set<Int>) {
         return numbers.contains(bonusNumber)
     }
 
-    fun displayLotto(): String {
-        return numbers.joinToString(",", prefix = "[", postfix = "]")
+    fun getLottoNumbers(): Set<Int> {
+        return numbers
     }
 }

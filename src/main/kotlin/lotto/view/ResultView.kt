@@ -10,7 +10,7 @@ object ResultView {
 
     fun displayTickets(tickets: List<Lotto>) {
         tickets.forEach {
-            println(it.displayLotto())
+            println(it.getLottoNumbers().joinToString(",", prefix = "[", postfix = "]"))
         }
     }
 
