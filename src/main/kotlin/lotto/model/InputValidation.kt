@@ -16,7 +16,7 @@ object InputValidation {
     }
 
     fun validateBonusNumberInput(
-        winningNumbers: List<Int>,
+        winningNumbers: Set<Int>,
         bonusNumberInput: Int,
     ) {
         require(bonusNumberInput in 1..50) { Error.OUT_OF_RANGE.message } // bonus number must be in range 1 - 50

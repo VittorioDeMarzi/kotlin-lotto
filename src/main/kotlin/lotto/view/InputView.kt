@@ -15,21 +15,21 @@ object InputView {
         }
     }
 
-    fun winningNumbersInput(): List<Int> {
+    fun winningNumbersInput(): Set<Int> {
         while (true) {
             try {
                 println("Please enter last week’s winning numbers.")
                 val winningNumbers = readlnOrNull() ?: throw IllegalArgumentException(Error.INVALID_INPUT.message)
                 val winningLottoNumbers = winningNumbers.split(",").map { it.toInt() }
                 InputValidation.validateWinningNumbersInput(winningLottoNumbers)
-                return winningLottoNumbers
+                return winningLottoNumbers.toSet()
             } catch (e: IllegalArgumentException) {
                 println(e.message)
             }
         }
     }
 
-    fun bonusNumberInput(winningNumbers: List<Int>): Int {
+    fun bonusNumberInput(winningNumbers: Set<Int>): Int {
         while (true) {
             try {
                 println("Please enter the bonus number.")
