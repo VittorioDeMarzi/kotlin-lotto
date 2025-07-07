@@ -7,7 +7,7 @@ object InputView {
         while (true) {
             try {
                 println("Please enter the purchase amount:")
-                val input = readlnOrNull() ?: throw IllegalArgumentException(Error.INVALID_INPUT.message)
+                val input = readln().toIntOrNull() ?: throw IllegalArgumentException(Error.INVALID_INPUT.message)
                 return InputValidation.validatePurchaseAmount(input)
             } catch (error: IllegalArgumentException) {
                 println(error.message)
