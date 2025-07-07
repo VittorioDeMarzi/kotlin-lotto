@@ -7,12 +7,12 @@
     - [x] The amount must be divisible by 1,000 KRW
 - [x] Calculate number of tickets from the amount: amount / 1000
 
-- [ ] validate the number of manual tickets to purchase:
-    - [ ] number must be greater then 0
-    - [ ] number must lower than number of tickets
-- [ ] calculate number of ticket user want to manually generate
-- [ ] calculate number of tickets the machine has to automatically generate
-- [ ] Display number of manual and automatic tickets
+- [x] validate the number of manual tickets to purchase:
+    - [x] number must be greater then 0
+    - [x] number must lower than number of tickets
+- [x] calculate number of ticket user want to manually generate
+- [x] calculate number of tickets the machine has to automatically generate
+- [x] Display number of manual and automatic tickets
 - [ ] Input and Validation numbers for manual tickets:
     - [ ] each ticket has 6 numbers
     - [ ] Numbers must be in the range 1 to 45
