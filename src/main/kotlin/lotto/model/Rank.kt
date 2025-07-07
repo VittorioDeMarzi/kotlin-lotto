@@ -24,8 +24,4 @@ enum class Rank(val countOfMatch: Int, val winningMoney: Int, val matchBonus: Bo
             }
         }
     }
-
-    fun display(): String {
-        return "${this.countOfMatch} Matches (${this.winningMoney})"
-    }
 }
