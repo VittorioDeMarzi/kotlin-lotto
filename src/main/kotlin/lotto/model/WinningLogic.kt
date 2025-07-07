@@ -1,10 +1,10 @@
 package lotto.model
 
-class WinningLogic(
-    private val tickets: List<Lotto>,
-    private val winningLotto: WinningLotto,
-) {
-    fun determineWinningTickets(): Map<Rank, Int> {
+object WinningLogic {
+    fun determineWinningTickets2(
+        tickets: List<Lotto>,
+        winningLotto: WinningLotto,
+    ): Map<Rank, Int> {
         return tickets
             .map {
                 val countMatches = winningLotto.countMatches(it)
