@@ -8,7 +8,7 @@ class InputValidationTest {
     // Purchase Validation Test
     @Test
     fun `should throw if less then 1000`() {
-        val number = "999"
+        val number = 999
         assertThrows<IllegalArgumentException> { InputValidation.validatePurchaseAmount(number) }
     }
 
