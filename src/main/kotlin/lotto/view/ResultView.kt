@@ -5,10 +5,6 @@ import lotto.model.LottoResult
 import lotto.model.Rank
 
 object ResultView {
-    fun displayNumberOfTickets(numberOfTickets: Int) {
-        println("You have purchased $numberOfTickets tickets.")
-    }
-
     fun displayTickets(tickets: List<Lotto>) {
         tickets.forEach {
             println(it.getLottoNumbers().joinToString(",", prefix = "[", postfix = "]"))
