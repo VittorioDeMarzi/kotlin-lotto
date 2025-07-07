@@ -21,7 +21,7 @@ object InputView {
                 println("Please enter last week’s winning numbers.")
                 val winningNumbers = readlnOrNull() ?: throw IllegalArgumentException(Error.INVALID_INPUT.message)
                 val winningLottoNumbers = winningNumbers.split(",").map { it.toInt() }
-                InputValidation.validateWinningNumbersInput(winningLottoNumbers)
+                InputValidation.validateLottoNumbersInput(winningLottoNumbers)
                 return winningLottoNumbers.toSet()
             } catch (e: IllegalArgumentException) {
                 println(e.message)
@@ -54,5 +54,23 @@ object InputView {
                 println(e.message)
             }
         }
+    }
+
+    fun getManualTickets(numberManualTickets: Int): List<Set<Int>> {
+        val tickets = mutableListOf<Set<Int>>()
+        println("Enter the numbers for manual tickets.")
+        while (tickets.size < numberManualTickets) {
+            try {
+                val ticketNumbers = readlnOrNull() ?: throw IllegalArgumentException(Error.INVALID_INPUT.message)
+                val lottoNumbers = ticketNumbers.split(",").map { it.trim().toInt() }
+                InputValidation.validateLottoNumbersInput(lottoNumbers)
+                tickets.add(lottoNumbers.toSet())
+            } catch (e: IllegalArgumentException) {
+                println("${e.message}. Please try again.")
+            } catch (e: NumberFormatException) {
+                println(Error.INVALID_INPUT.message)
+            }
+        }
+        return tickets
     }
 }
