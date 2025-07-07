@@ -6,11 +6,23 @@
     - [x] The input amount must be greater than or equal to 1,000 KRW
     - [x] The amount must be divisible by 1,000 KRW
 - [x] Calculate number of tickets from the amount: amount / 1000
-- [x] Generate LottoTickets
+
+- [ ] validate the number of manual tickets to purchase:
+    - [ ] number must be greater then 0
+    - [ ] number must lower than number of tickets
+- [ ] calculate number of ticket user want to manually generate
+- [ ] calculate number of tickets the machine has to automatically generate
+- [ ] Display number of manual and automatic tickets
+- [ ] Input and Validation numbers for manual tickets:
+    - [ ] each ticket has 6 numbers
+    - [ ] Numbers must be in the range 1 to 45
+
+- [ ] Generate automatic LottoTickets
     - [x] each ticket has 6 numbers
     - [x] Numbers must be in the range 1 to 45
     - [x] Numbers should be sorted in ascending order
     - [x] Display all purchased tickets to the user
+
 - [x] Input and Validation winning numbers:
     - [x] Input 6 unique winning numbers (1–45)
     - [x] Input 1 bonus number (must not be among the 6 winning numbers)
@@ -21,3 +33,10 @@
 - [x] Show winning statistic
     - [x] Count and display how many tickets fall into each prize category
     - [x] Calculate and display winning rate
+
+## Functional Requirements
+
+- Allow users to manually enter Lotto numbers in addition to automatically generated ones.
+- Accept input for the purchase amount, the number of manually generated tickets, and their respective numbers.
+- Use First-Class Collections to encapsulate sets of Lotto numbers. For example, create a LottoNumber class to wrap a
+  single Int value.
