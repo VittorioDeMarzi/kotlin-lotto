@@ -13,9 +13,9 @@
 - [x] calculate number of ticket user want to manually generate
 - [x] calculate number of tickets the machine has to automatically generate
 - [x] Display number of manual and automatic tickets
-- [ ] Input and Validation numbers for manual tickets:
-    - [ ] each ticket has 6 numbers
-    - [ ] Numbers must be in the range 1 to 45
+- [x] Input and Validation numbers for manual tickets:
+    - [x] each ticket has 6 numbers
+    - [x] Numbers must be in the range 1 to 45
 
 - [ ] Generate automatic LottoTickets
     - [x] each ticket has 6 numbers
