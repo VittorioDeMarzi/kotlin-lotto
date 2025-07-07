@@ -10,11 +10,6 @@ object TicketFactory {
     }
 
     fun generateTickets(numberOfTickets: Int): List<Lotto> {
-        val listOfTickets = mutableListOf<Lotto>()
-        repeat(numberOfTickets) {
-            val lotto = Lotto(Random.generateSetOfSixRandomNumbers())
-            listOfTickets.add(lotto)
-        }
-        return listOfTickets
+        return List(numberOfTickets) { Lotto.fromInts(Random.generateSetOfSixRandomNumbers()) }
     }
 }
