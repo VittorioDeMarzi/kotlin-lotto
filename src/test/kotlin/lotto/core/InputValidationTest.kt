@@ -1,6 +1,7 @@
 package lotto.core
 
 import lotto.model.InputValidation
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.assertThrows
 import kotlin.test.Test
 
@@ -8,34 +9,54 @@ class InputValidationTest {
     // Purchase Validation Test
     @Test
     fun `should throw if less then 1000`() {
-        val number = 999
-        assertThrows<IllegalArgumentException> { InputValidation.validatePurchaseAmount(number) }
+        val purchaseAmount = 999
+        assertThrows<IllegalArgumentException> { InputValidation.validatePurchaseAmount(purchaseAmount) }
     }
 
     @Test
-    fun `winning numbers should be unique numbers`() {
+    fun `should throw if negative number`() {
+        val purchaseAmount = 0
+        assertThrows<IllegalArgumentException> { InputValidation.validatePurchaseAmount(purchaseAmount) }
+    }
+
+    @Test
+    fun `should throw if not divisible by 1000`() {
+        val purchaseAmount = 1500
+        assertThrows<IllegalArgumentException> { InputValidation.validatePurchaseAmount(purchaseAmount) }
+    }
+
+    @Test
+    fun `should return the right purchase amount`() {
+        val purchaseAmount = 2000
+        assertThat(purchaseAmount).isEqualTo(InputValidation.validatePurchaseAmount(purchaseAmount))
+    }
+
+    //  Lotto numbers Validation
+    @Test
+    fun `lotto numbers should be unique numbers`() {
         val winningLotto = listOf<Int>(1, 2, 3, 4, 5, 5)
         assertThrows<IllegalArgumentException> { InputValidation.validateLottoNumbersInput(winningLotto) }
     }
 
     @Test
-    fun `winning numbers should has to be exactly 6 numbers`() {
+    fun `lotto numbers should has to be exactly 6 numbers`() {
         val winningLotto = listOf<Int>(1, 2, 3, 4, 5)
         assertThrows<IllegalArgumentException> { InputValidation.validateLottoNumbersInput(winningLotto) }
     }
 
     @Test
-    fun `winning numbers should has to be exactly 6 numbers_2`() {
+    fun `lotto numbers should has to be exactly 6 numbers_2`() {
         val winningLotto = listOf<Int>(1, 2, 3, 4, 5, 6, 7)
         assertThrows<IllegalArgumentException> { InputValidation.validateLottoNumbersInput(winningLotto) }
     }
 
     @Test
-    fun `winning numbers must be in range 1 - 50`() {
+    fun `lotto numbers must be in range 1 - 50`() {
         val winningLotto = listOf<Int>(1, 2, 3, 4, 5, 51)
         assertThrows<IllegalArgumentException> { InputValidation.validateLottoNumbersInput(winningLotto) }
     }
 
+    // Number of manual tickets number validation
     @Test
     fun `manual numbers of tickets must be in range 0 - numberMaximaTickets`() {
         val numberManualTicketsInput = 10
@@ -56,6 +77,43 @@ class InputValidationTest {
             InputValidation.validateNumberManualTicketsInput(
                 numberManualTickets = numberManualTicketsInput,
                 maximalNumberOfTickets = numberTicketsAvailable,
+            )
+        }
+    }
+
+    // bonus number validation
+    @Test
+    fun `should throw if bonus number is negative`() {
+        val bonusNumber = -1
+        val winningNumber = setOf(1, 2, 3, 4, 5, 6)
+        assertThrows<IllegalArgumentException> {
+            InputValidation.validateBonusNumberInput(
+                winningNumbers = winningNumber,
+                bonusNumberInput = bonusNumber,
+            )
+        }
+    }
+
+    @Test
+    fun `should throw if bonus number is greater the 50`() {
+        val bonusNumber = 51
+        val winningNumber = setOf(1, 2, 3, 4, 5, 6)
+        assertThrows<IllegalArgumentException> {
+            InputValidation.validateBonusNumberInput(
+                winningNumbers = winningNumber,
+                bonusNumberInput = bonusNumber,
+            )
+        }
+    }
+
+    @Test
+    fun `should throw if bonus number in the winning numbers`() {
+        val bonusNumber = 1
+        val winningNumber = setOf(1, 2, 3, 4, 5, 6)
+        assertThrows<IllegalArgumentException> {
+            InputValidation.validateBonusNumberInput(
+                winningNumbers = winningNumber,
+                bonusNumberInput = bonusNumber,
             )
         }
     }
