@@ -46,6 +46,21 @@ class LottoTest {
         assertThat(ticket.containsBonus(bonusNumber)).isFalse()
     }
 
+    @Test
+    fun `GetLottoNumbers should return the right set of numbers`() {
+        val lotto = Lotto.fromInts(setOf<Int>(1, 2, 3, 4, 5, 6))
+        val expectation =
+            setOf<LottoNumber>(
+                LottoNumber.from(1),
+                LottoNumber.from(2),
+                LottoNumber.from(3),
+                LottoNumber.from(4),
+                LottoNumber.from(5),
+                LottoNumber.from(6),
+            )
+        assertThat(lotto.getLottoNumbers()).isEqualTo(expectation)
+    }
+
     companion object {
         @JvmStatic
         fun factory(): Set<Set<Int>> {
