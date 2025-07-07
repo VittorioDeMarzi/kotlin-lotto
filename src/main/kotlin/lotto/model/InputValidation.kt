@@ -22,4 +22,12 @@ object InputValidation {
         require(bonusNumberInput in 1..50) { Error.OUT_OF_RANGE.message } // bonus number must be in range 1 - 50
         require(!winningNumbers.contains(bonusNumberInput)) { Error.BONUS.message } // bonus number must not be in the winningLotto numbers
     }
+
+    fun validateNumberManualTicketsInput(
+        numberManualTickets: Int,
+        maximalNumberOfTickets: Int,
+    ) {
+        require(numberManualTickets <= maximalNumberOfTickets) { Error.MANUAL_TICKET_NUMBER_TOO_HIGH }
+        require(numberManualTickets >= 0) { Error.MANUAL_TICKET_NUMBER_NOT_NULL }
+    }
 }

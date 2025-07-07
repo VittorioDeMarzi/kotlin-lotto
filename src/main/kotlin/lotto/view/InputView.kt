@@ -41,4 +41,18 @@ object InputView {
             }
         }
     }
+
+    fun getManualTicketsNumber(maximalNumberOfTickets: Int): Int {
+        while (true) {
+            try {
+                println("Please enter the bonus number.")
+                val numberManualTickets =
+                    readln().toIntOrNull() ?: throw IllegalArgumentException(Error.INVALID_INPUT.message)
+                InputValidation.validateNumberManualTicketsInput(numberManualTickets, maximalNumberOfTickets)
+                return numberManualTickets
+            } catch (e: IllegalArgumentException) {
+                println(e.message)
+            }
+        }
+    }
 }

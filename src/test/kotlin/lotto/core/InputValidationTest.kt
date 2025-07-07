@@ -35,4 +35,28 @@ class InputValidationTest {
         val winningLotto = listOf<Int>(1, 2, 3, 4, 5, 51)
         assertThrows<IllegalArgumentException> { InputValidation.validateWinningNumbersInput(winningLotto) }
     }
+
+    @Test
+    fun `manual numbers of tickets must be in range 0 - numberMaximaTickets`() {
+        val numberManualTicketsInput = 10
+        val numberTicketsAvailable = 9
+        assertThrows<IllegalArgumentException> {
+            InputValidation.validateNumberManualTicketsInput(
+                numberManualTickets = numberManualTicketsInput,
+                maximalNumberOfTickets = numberTicketsAvailable,
+            )
+        }
+    }
+
+    @Test
+    fun `manual numbers of tickets must be greater than 0`() {
+        val numberManualTicketsInput = -10
+        val numberTicketsAvailable = 9
+        assertThrows<IllegalArgumentException> {
+            InputValidation.validateNumberManualTicketsInput(
+                numberManualTickets = numberManualTicketsInput,
+                maximalNumberOfTickets = numberTicketsAvailable,
+            )
+        }
+    }
 }
