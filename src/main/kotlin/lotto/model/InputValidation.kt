@@ -27,7 +27,7 @@ object InputValidation {
         numberManualTickets: Int,
         maximalNumberOfTickets: Int,
     ) {
-        require(numberManualTickets <= maximalNumberOfTickets) { Error.MANUAL_TICKET_NUMBER_TOO_HIGH }
-        require(numberManualTickets >= 0) { Error.MANUAL_TICKET_NUMBER_NOT_NULL }
+        require(numberManualTickets <= maximalNumberOfTickets) { Error.MANUAL_TICKET_NUMBER_TOO_HIGH.message }
+        require(numberManualTickets >= 0) { Error.MANUAL_TICKET_NUMBER_NOT_NULL.message }
     }
 }

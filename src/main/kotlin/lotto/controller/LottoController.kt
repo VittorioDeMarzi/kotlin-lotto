@@ -28,6 +28,8 @@ class LottoController(
     fun handlePurchase(purchaseAmount: Int): List<Lotto> {
         val numberOfTickets = ticketFactory.calculateNumberOfTickets(purchaseAmount)
         val manualTicketsNumber = inputView.getManualTicketsNumber(numberOfTickets)
+        val automaticTicketsNumber = numberOfTickets - manualTicketsNumber
+        resultView.displayNumberOfTicketsInput(manualTicketsNumber, automaticTicketsNumber)
         val tickets = ticketFactory.generateTickets(numberOfTickets)
         resultView.displayNumberOfTickets(numberOfTickets)
         resultView.displayTickets(tickets)

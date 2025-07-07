@@ -38,4 +38,11 @@ object ResultView {
     fun displayWinningRate(rate: Double) {
         println("Total return rate is " + String.format("%.2f", rate) + " (A rate below 1 means a loss)")
     }
+
+    fun displayNumberOfTicketsInput(
+        manualTicketsNumber: Int,
+        automaticTicketsNumber: Int,
+    ) {
+        println("Purchased $manualTicketsNumber manual and $automaticTicketsNumber automatic tickets.")
+    }
 }
