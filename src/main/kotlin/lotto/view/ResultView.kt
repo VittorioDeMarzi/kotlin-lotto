@@ -27,7 +27,7 @@ object ResultView {
 
         rankList.forEach { prize ->
             val count = lottoResult.count(prize)
-            println("${prize.display()} – $count tickets")
+            println("${prize.countOfMatch} Matches (${prize.winningMoney}) – $count tickets")
         }
     }
 
@@ -39,6 +39,7 @@ object ResultView {
         manualTicketsNumber: Int,
         automaticTicketsNumber: Int,
     ) {
+        println()
         println("Purchased $manualTicketsNumber manual and $automaticTicketsNumber automatic tickets.")
     }
 }

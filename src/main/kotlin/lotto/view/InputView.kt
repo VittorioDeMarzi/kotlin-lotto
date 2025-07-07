@@ -18,7 +18,7 @@ object InputView {
     fun winningNumbersInput(): Set<Int> {
         while (true) {
             try {
-                println("Please enter last week’s winning numbers.")
+                println("\nPlease enter last week’s winning numbers.")
                 val winningNumbers = readlnOrNull() ?: throw IllegalArgumentException(Error.INVALID_INPUT.message)
                 val winningLottoNumbers = winningNumbers.split(",").map { it.toInt() }
                 InputValidation.validateLottoNumbersInput(winningLottoNumbers)
@@ -32,7 +32,7 @@ object InputView {
     fun bonusNumberInput(winningNumbers: Set<Int>): Int {
         while (true) {
             try {
-                println("Please enter the bonus number.")
+                println("\nPlease enter the bonus number.")
                 val bonusNumber = readln().toIntOrNull() ?: throw IllegalArgumentException(Error.INVALID_INPUT.message)
                 InputValidation.validateBonusNumberInput(winningNumbers, bonusNumber)
                 return bonusNumber
@@ -45,7 +45,7 @@ object InputView {
     fun getManualTicketsNumber(maximalNumberOfTickets: Int): Int {
         while (true) {
             try {
-                println("Enter the number of manual tickets to purchase.")
+                println("\nEnter the number of manual tickets to purchase.")
                 val numberManualTickets =
                     readln().toIntOrNull() ?: throw IllegalArgumentException(Error.INVALID_INPUT.message)
                 InputValidation.validateNumberManualTicketsInput(numberManualTickets, maximalNumberOfTickets)
@@ -58,7 +58,7 @@ object InputView {
 
     fun getManualTickets(numberManualTickets: Int): List<Set<Int>> {
         val tickets = mutableListOf<Set<Int>>()
-        println("Enter the numbers for manual tickets.")
+        println("\nEnter the numbers for manual tickets.")
         while (tickets.size < numberManualTickets) {
             try {
                 val ticketNumbers = readlnOrNull() ?: throw IllegalArgumentException(Error.INVALID_INPUT.message)
