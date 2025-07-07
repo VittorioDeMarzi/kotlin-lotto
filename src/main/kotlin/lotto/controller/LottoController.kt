@@ -1,7 +1,6 @@
 package lotto.controller
 
 import lotto.model.Lotto
-import lotto.model.Statistics
 import lotto.model.TicketFactory
 import lotto.model.WinningLogic
 import lotto.model.WinningLotto
@@ -14,15 +13,15 @@ class LottoController(
     private val resultView: ResultView,
     private val ticketFactory: TicketFactory,
     private val winningLotto: WinningLottoFactory,
+    private val winningLogic: WinningLogic,
 ) {
     fun run() {
         val purchaseAmount = inputView.purchaseAmountInput()
         val tickets = handlePurchase(purchaseAmount)
         val winningLotto = handleWinningLotto()
-        val result = WinningLogic(tickets, winningLotto).determineWinningTickets()
-        val statistics = Statistics(result, tickets.size)
-        resultView.displayWinningRanks(result)
-        resultView.displayWinningRate(statistics.calculateRate())
+        val result = WinningLogic.determineWinningTickets(tickets, winningLotto)
+        val profitRate = result.calculateProfitRate()
+        resultView.displayWinningStatistics(result, profitRate)
     }
 
     fun handlePurchase(purchaseAmount: Int): List<Lotto> {
