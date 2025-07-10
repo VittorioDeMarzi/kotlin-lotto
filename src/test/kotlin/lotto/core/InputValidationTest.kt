@@ -14,8 +14,14 @@ class InputValidationTest {
     }
 
     @Test
-    fun `should throw if negative number`() {
+    fun `should throw if zero`() {
         val purchaseAmount = 0
+        assertThrows<IllegalArgumentException> { InputValidation.validatePurchaseAmount(purchaseAmount) }
+    }
+
+    @Test
+    fun `should throw negative`() {
+        val purchaseAmount = -1000
         assertThrows<IllegalArgumentException> { InputValidation.validatePurchaseAmount(purchaseAmount) }
     }
 
