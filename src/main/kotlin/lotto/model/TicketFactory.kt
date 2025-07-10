@@ -18,11 +18,11 @@ object TicketFactory {
         return automaticTickets.plus(manualTickets)
     }
 
-    fun generateAutomaticTickets(numberOfTickets: Int): List<Lotto> {
+    private fun generateAutomaticTickets(numberOfTickets: Int): List<Lotto> {
         return List(numberOfTickets) { Lotto.fromInts(Random.generateSetOfSixRandomNumbers()) }
     }
 
-    fun generateManualTickets(manualTicketsList: List<Set<Int>>): List<Lotto> {
+    private fun generateManualTickets(manualTicketsList: List<Set<Int>>): List<Lotto> {
         return manualTicketsList
             .map { ticket -> Lotto.fromInts(ticket) }
             .toList()
