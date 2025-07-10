@@ -13,18 +13,8 @@ object TicketFactory {
         manualTicketsList: List<Set<Int>>,
         automaticTicketsNumber: Int,
     ): List<Lotto> {
-        val automaticTickets = generateAutomaticTickets(automaticTicketsNumber)
-        val manualTickets = generateManualTickets(manualTicketsList)
+        val automaticTickets = TicketGenerator.generateAutomaticTickets(automaticTicketsNumber)
+        val manualTickets = TicketGenerator.generateManualTickets(manualTicketsList)
         return automaticTickets.plus(manualTickets)
-    }
-
-    private fun generateAutomaticTickets(numberOfTickets: Int): List<Lotto> {
-        return List(numberOfTickets) { Lotto.fromInts(Random.generateSetOfSixRandomNumbers()) }
-    }
-
-    private fun generateManualTickets(manualTicketsList: List<Set<Int>>): List<Lotto> {
-        return manualTicketsList
-            .map { ticket -> Lotto.fromInts(ticket) }
-            .toList()
     }
 }
