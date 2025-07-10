@@ -51,7 +51,7 @@ class TicketFactoryTest {
         val expectedFirst = setOf(1, 2, 3, 4, 5, 6).map(LottoNumber::from).toSet()
         val expectedSecond = setOf(10, 11, 12, 13, 14, 15).map(LottoNumber::from).toSet()
 
-        assertThat(result[0].getLottoNumbers()).isEqualTo(expectedFirst)
-        assertThat(result[1].getLottoNumbers()).isEqualTo(expectedSecond)
+        assertThat(result[0].lottoNumbers).isEqualTo(expectedFirst)
+        assertThat(result[1].lottoNumbers).isEqualTo(expectedSecond)
     }
 }

@@ -58,7 +58,7 @@ class LottoTest {
                 LottoNumber.from(5),
                 LottoNumber.from(6),
             )
-        assertThat(lotto.getLottoNumbers()).isEqualTo(expectation)
+        assertThat(lotto.lottoNumbers).isEqualTo(expectation)
     }
 
     companion object {
