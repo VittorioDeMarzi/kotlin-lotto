@@ -21,11 +21,10 @@ class LottoController(
         val tickets = handlePurchase(purchaseAmount)
         val winningLotto = handleWinningLotto()
         val result = winningLogic.determineWinningTickets(tickets, winningLotto)
-        val profitRate = result.calculateProfitRate()
-        resultView.displayWinningStatistics(result, profitRate)
+        resultView.displayWinningStatistics(result)
     }
 
-    fun handlePurchase(purchaseAmount: Int): List<Lotto> {
+    private fun handlePurchase(purchaseAmount: Int): List<Lotto> {
         val numberOfTickets = ticketFactory.calculateNumberOfTickets(purchaseAmount)
         val manualTicketsNumber = inputView.getManualTicketsNumber(numberOfTickets)
         val automaticTicketsNumber = numberOfTickets - manualTicketsNumber
@@ -36,7 +35,7 @@ class LottoController(
         return tickets
     }
 
-    fun handleWinningLotto(): WinningLotto {
+    private fun handleWinningLotto(): WinningLotto {
         val winningLottoList = inputView.winningNumbersInput()
         val bonusNumber = LottoNumber.from(inputView.bonusNumberInput(winningLottoList))
         val winningLotto = winningLotto.from(winningLottoList, bonusNumber)

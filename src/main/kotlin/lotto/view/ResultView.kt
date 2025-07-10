@@ -7,16 +7,13 @@ import lotto.model.Rank
 object ResultView {
     fun displayTickets(tickets: List<Lotto>) {
         tickets.forEach {
-            println(it.getLottoNumbers().joinToString(",", prefix = "[", postfix = "]"))
+            println(it.lottoNumbers.joinToString(",", prefix = "[", postfix = "]"))
         }
     }
 
-    fun displayWinningStatistics(
-        lottoResult: LottoResult,
-        profitRate: Double,
-    ) {
+    fun displayWinningStatistics(lottoResult: LottoResult) {
         displayWinningRanks(lottoResult)
-        displayWinningRate(profitRate)
+        displayWinningRate(lottoResult.calculateProfitRate())
     }
 
     fun displayWinningRanks(lottoResult: LottoResult) {

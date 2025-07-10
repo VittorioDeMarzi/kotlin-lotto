@@ -8,6 +8,13 @@ import lotto.view.InputView
 import lotto.view.ResultView
 
 fun main() {
-    val lottoGame = LottoController(InputView, ResultView, TicketFactory, WinningLottoFactory, WinningLogic)
+    val lottoGame =
+        LottoController(
+            InputView,
+            ResultView,
+            TicketFactory,
+            WinningLottoFactory,
+            WinningLogic,
+        )
     lottoGame.run()
 }
