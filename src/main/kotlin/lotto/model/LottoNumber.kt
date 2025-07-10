@@ -1,6 +1,7 @@
 package lotto.model
 
-data class LottoNumber(private val value: Int) {
+@JvmInline
+value class LottoNumber(private val value: Int) {
     companion object {
         private const val MINIMUM_NUMBER = 1
         private const val MAXIMUM_NUMBER = 50
