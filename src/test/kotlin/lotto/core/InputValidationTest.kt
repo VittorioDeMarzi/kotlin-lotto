@@ -101,6 +101,18 @@ class InputValidationTest {
     }
 
     @Test
+    fun `should throw if bonus number is zero`() {
+        val bonusNumber = 0
+        val winningNumber = setOf(1, 2, 3, 4, 5, 6)
+        assertThrows<IllegalArgumentException> {
+            InputValidation.validateBonusNumberInput(
+                winningNumbers = winningNumber,
+                bonusNumberInput = bonusNumber,
+            )
+        }
+    }
+
+    @Test
     fun `should throw if bonus number is greater the 50`() {
         val bonusNumber = 51
         val winningNumber = setOf(1, 2, 3, 4, 5, 6)
